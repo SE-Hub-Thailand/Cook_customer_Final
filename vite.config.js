@@ -20,7 +20,7 @@ export default defineConfig({
         '/api': {
           target: 'https://cookkeptuser.sehub-thailand.com',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\\/api/, '')
+          rewrite: (path) => path.replace(/^\/api/, '')
         }
       }
     }
