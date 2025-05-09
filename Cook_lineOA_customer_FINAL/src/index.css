@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --body-font: "Sarabun", sans-serif;
+}
+
+body {
+  background-color: #E9F6FC;
+  font-family: var(--body-font);
+}
+
+.shop-2 {
+  display:flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  background-color: #FBB615;
+  margin-top: rem;
+  padding-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.circle {
+  width: 95px;
+  height: 95px;
+  margin: 2rem 0rem 2rem 0rem;
+  box-shadow: 0px 1px 3px gray inset;
+  border-radius: 50%;
+}
+.circle-shop-vegetable{
+  width: 250px;
+  height: 250px;
+  box-shadow: 0px 1px 3px gray inset;
+  border-radius: 50%;
+  background-image: url('./assets/images/fruit.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.circle-shop-fruit{
+  width: 250px;
+  height: 250px;
+  box-shadow: 0px 1px 3px gray inset;
+  border-radius: 50%;
+  background-image: url('./assets/images/fruit-2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.circle-shop-egg{
+  width: 250px;
+  height: 250px;
+  box-shadow: 0px 1px 3px gray inset;
+  border-radius: 50%;
+  background-image: url('./assets/images/egg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.circle-shop-duck-egg{
+  width: 250px;
+  height: 250px;
+  box-shadow: 0px 1px 3px gray inset;
+  border-radius: 50%;
+  background-image: url('./assets/images/duckegg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.circle-shop-fruit-2{
+  width: 250px;
+  height: 250px;
+  box-shadow: 0px 1px 3px gray inset;
+  border-radius: 50%;
+  background-image: url('./assets/images/fruit-3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.custom-font {
+  font-family: 'Sarabun';
+}
+
+.css-ct0bxo-MuiTypography-root {
+  font-size: 1.5rem !important;
+}
+
+.image-1 {
+  background-image: url('./assets/images/broccoli.png');
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+}
+.image-2 {
+  background-image: url('./assets/images/cucumber.png');
+  background-size: 150px 150px;
+  background-repeat: no-repeat;
+}
+.image-3 {
+  background-image: url('./assets/images/pepper.png');
+  background-size: 150px 150px;
+  background-repeat: no-repeat;
+}
+.jYnrdz {
+  margin-top: 50px;
+}
+.background {
+  background-image: url('./assets/images/broccoli.png');
+  background-size: cover;
+  background-repeat: no-repeat;  
+  display: flex;
+  justify-content: center;
+}
+.background-2 {
+  background-image: url('./assets/images/cucumber.png');
+  background-size: 100px 100px;
+  background-repeat: no-repeat;  
+  display: flex;
+  justify-content: center;
+}
+.background-3 {
+  background-image: url('./assets/images/pepper.png');
+  background-size: 100px 100px;
+  background-repeat: no-repeat;  
+  display: flex;
+  justify-content: center;
+}
+.width-button-choose{
+  width:100px;
+}
+.width-button-inandde {
+  width: 70px;
+}
+.width-button-count {
+  width: 250px;
+}
+.number-basket {
+  position: relative;
+  right: -49px;
+  bottom: 22px;
+}
+.height-bg{
+  height: auto;
+}
+.slider-container {
+  width: 300px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.slider-container.on {
+  background-color: #4caf50;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider-button {
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s ease;
+}
+
+.coin-bg {
+  background-image: url('./assets/images/coins.png');
+  background-size: cover;
+}
+.slider-container.on .slider-button {
+  left: 273px;
+}
+.shadow-can{
+  box-shadow: 0 4px 4px -3px rgb(0 0 0 / 0.6) 
+}
+.bg-content {
+  background-color: #F9F9F9;
+}
+
+.basket-order {
+  position: relative; 
+  right: 131px; 
+  bottom: 6px;  
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center; 
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  font-weight: bold; 
+  color: white;
+  background-color: red;
+  border-radius: 50%;
+}
+.dciIuw {
+  margin-top: 3rem;
+}
+.ijzQQe{
+  margin-top: 3rem;
+}
+.dHOlWC {
+  margin-top: 3rem;
+}
+.css-cuefkz-MuiContainer-root{
+  margin-top: 20px;
+}
+.css-1auhl52 {
+  padding: 0 !important;
+  height: 1500px !important;
+}
+.css-11xur9t-MuiPaper-root-MuiTableContainer-root{
+  box-shadow: none !important;
+ 
+}
+.product-name {
+  margin-top: 2rem !important;
+}
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .basket-order {
+    right: 90px; /* Adjust position for smaller screens */
+    bottom: 4px;
+    width: 20px; /* Smaller size */
+    height: 20px;
+    font-size: 10px; /* Smaller font size */
+  }
+
+  .w-10.h-10 {
+    width: 1.5rem; /* Smaller icon size */
+    height: 1.5rem;
+  }
+}
+
+/* Responsive adjustments for medium to large screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .basket-order {
+    right: 100px; /* Adjust position for medium screens */
+    bottom: 5px;
+    width: 22px; /* Slightly smaller size */
+    height: 22px;
+    font-size: 11px; /* Slightly smaller font size */
+  }
+
+  .w-10.h-10 {
+    width: 2rem; /* Medium icon size */
+    height: 2rem;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1025px) {
+  .basket-order {
+    right: 131px; /* Original position for larger screens */
+    bottom: 6px;
+    width: 24px; /* Original size */
+    height: 24px;
+    font-size: 12px; /* Original font size */
+  }
+
+  .w-10.h-10 {
+    width: 2.5rem; /* Larger icon size */
+    height: 2.5rem;
+  }
+}
+.contact-text {
+  font-size: 20px;
+}
+

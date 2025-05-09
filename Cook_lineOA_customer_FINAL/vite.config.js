@@ -1,0 +1,53 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 5173,
+    host: true,
+    strictPort: true,
+    origin: 'https://724b-1-20-91-51.ngrok-free.app',
+    hmr: {
+      protocol: 'wss',
+      host: '724b-1-20-91-51.ngrok-free.app',
+      clientPort: 443
+    },
+    proxy: {
+      '/api': {
+        target: 'https://cookkeptuser.sehub-thailand.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
+  optimizeDeps: {
+    include: ['leaflet', 'react', 'react-dom', '@line/liff']
+  }
+})
+
+
+// https://vitejs.dev/config/
+// export default defineConfig({
+//   // server: {
+//   //   port: 3000, // กำหนดพอร์ตที่ต้องการ
+//   // },
+//     plugins: [react()],
+//   })
+
+// import react from '@vitejs/plugin-react'
+// import { defineConfig } from 'vite'
+// import fs from 'fs'
+// import path from 'path'
+
+// export default defineConfig({
+//   server: {
+//     https: {
+//       key: '/root/Cook_lineOA/key.pem',
+//       cert: '/root/Cook_lineOA/cert.pem',
+//     },
+//     host: true,  // หรือใช้ '--host' ก็ได้
+//     port: 5173,  // คุณสามารถเปลี่ยน port ได้ถ้าต้องการ
+//   },
+//   plugins: [react()],
+// })
