@@ -13,34 +13,34 @@ const App = () => {
   useEffect(() => {
     const handleAuth = async () => {
       try {
-        await liff.init({ liffId: import.meta.env.VITE_LIFF_ID });
-
-        // If not logged in, trigger login
-        if (!liff.isLoggedIn()) {
-          liff.login();
-          return;
-        }
-
-        // Get user profile from LINE
-        const profile = await liff.getProfile();
-        const lineId = profile.userId;
-
-        // Store LINE user profile in localStorage
-        localStorage.setItem("userId", lineId);
-        localStorage.setItem("displayName", profile.displayName);
-        localStorage.setItem("pictureUrl", profile.pictureUrl);
-
+        // ✅ STEP 1: เคย login มาก่อน → เด้งเข้า /home เลย
         const storedJwt = localStorage.getItem('jwt');
         const storedLineId = localStorage.getItem('userId');
 
-        // ✅ If already logged in, navigate to /home
-        if (storedJwt && storedLineId === lineId) {
-          console.log("🔐 Already authenticated, redirecting to /home");
+        if (storedJwt && storedLineId) {
+          console.log("✅ Found existing login, redirecting to /home");
           navigate('/home');
           return;
         }
 
-        // 🔐 Not logged in before, try login API
+        // ✅ STEP 2: เริ่ม LINE LIFF
+        await liff.init({ liffId: import.meta.env.VITE_LIFF_ID });
+
+        if (!liff.isLoggedIn()) {
+          liff.login(); // ไปหน้า login ของ LINE
+          return;
+        }
+
+        // ✅ STEP 3: ดึงโปรไฟล์ LINE
+        const profile = await liff.getProfile();
+        const lineId = profile.userId;
+
+        // เก็บโปรไฟล์
+        localStorage.setItem('userId', lineId);
+        localStorage.setItem('displayName', profile.displayName);
+        localStorage.setItem('pictureUrl', profile.pictureUrl);
+
+        // 🔐 เช็คว่าเคยลงทะเบียนไว้ในระบบหรือยัง
         const loginRes = await loginWithLineId(lineId);
 
         if (loginRes && loginRes.jwt) {
