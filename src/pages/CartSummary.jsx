@@ -86,11 +86,19 @@ const CartSummary = () => {
   };
 
   const handleQrCodeClick = () => {
+    // const canvas = document.querySelector("canvas");
+    // if (canvas) {
+    //   const qrImageUrl = canvas.toDataURL("image/png"); // Convert QR code to image data URL
+    //   const newWindow = window.open();
+    //   newWindow.document.write(`<img src="${qrImageUrl}" />`); // Open the image in a new window
+    // }
     const canvas = document.querySelector("canvas");
     if (canvas) {
-      const qrImageUrl = canvas.toDataURL("image/png"); // Convert QR code to image data URL
-      const newWindow = window.open();
-      newWindow.document.write(`<img src="${qrImageUrl}" />`); // Open the image in a new window
+      const qrImageUrl = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = qrImageUrl;
+      link.download = "qr-code.png";
+      link.click();
     }
   };
   const [isModalOpen, setIsModalOpen] = useState(false); // State for controlling Modal
@@ -218,7 +226,7 @@ const CartSummary = () => {
         >
           <div className="bg-slate-200 p-4 rounded-lg" onClick={(e) => e.stopPropagation()}>
             <h2 className="text-center text-lg text-black font-semibold m-4">QR Code สำหรับใช้ตอนรับสินค้า</h2>
-            <div className="flex justify-center items-center mt-6 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+            <div onClick={handleQrCodeClick} className="flex justify-center items-center mt-6 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
               <QRCode value={randomString} size={256} className="rounded-md" />
             </div>
             <div className="mt-4 flex space-x-4 justify-center">
