@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import liff from '@line/liff';
 import './App.css';
 import { loginWithLineId } from './api/business/login';
-import { registerUserWithImage as registerUser } from './api/business/register';
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from './components/LoadingSpinner';
 
@@ -16,52 +15,47 @@ const App = () => {
       try {
         await liff.init({ liffId: import.meta.env.VITE_LIFF_ID });
 
+        // If not logged in, trigger login
         if (!liff.isLoggedIn()) {
           liff.login();
           return;
         }
 
+        // Get user profile from LINE
         const profile = await liff.getProfile();
         const lineId = profile.userId;
-    
-        localStorage.setItem("userId", profile.userId);
+
+        // Store LINE user profile in localStorage
+        localStorage.setItem("userId", lineId);
         localStorage.setItem("displayName", profile.displayName);
-        localStorage.setItem('pictureUrl', profile.pictureUrl);
+        localStorage.setItem("pictureUrl", profile.pictureUrl);
 
-        console.log("profile displayName", profile.displayName);
-        console.log("profile userID", profile.userId);
-        console.log("profile pictureUrl", profile.pictureUrl);
-        
-        // const storedJwt = localStorage.getItem('jwt');
+        const storedJwt = localStorage.getItem('jwt');
         const storedLineId = localStorage.getItem('userId');
-        console.log("storedLineId", storedLineId);
 
-        // if (storedJwt && storedLineId === lineId) {
-        //   console.log("storedJwt", storedJwt);
-        //   console.log("🔐 Already logged in, redirecting to /home");
-        //   navigate('/home');
-        //   setLoading(false);
-        //   return;
-        // }
+        // ✅ If already logged in, navigate to /home
+        if (storedJwt && storedLineId === lineId) {
+          console.log("🔐 Already authenticated, redirecting to /home");
+          navigate('/home');
+          return;
+        }
 
+        // 🔐 Not logged in before, try login API
         const loginRes = await loginWithLineId(lineId);
-        if (loginRes) {
-          localStorage.setItem('jwt', loginRes.jwt);
-          localStorage.setItem('userId', lineId);
 
-          console.log("jwt", loginRes.jwt);
-          console.log("lineId", lineId);
-          console.log("✅ Login successful, redirecting to /home");
+        if (loginRes && loginRes.jwt) {
+          localStorage.setItem('jwt', loginRes.jwt);
+          console.log("✅ Login success, redirecting to /home");
           navigate('/home');
         } else {
-          console.log("⚠️ Not registered, redirecting to /register");
+          console.log("⚠️ User not found, redirecting to /register");
           navigate('/register');
         }
 
-        setLoading(false);
       } catch (error) {
-        console.error('Auth error:', error);
-        setErrorMessage('Authentication failed.');
+        console.error("🚨 LINE Auth Error:", error);
+        setErrorMessage('เกิดข้อผิดพลาดในการยืนยันตัวตน กรุณาลองใหม่');
+      } finally {
         setLoading(false);
       }
     };
@@ -70,7 +64,7 @@ const App = () => {
   }, [navigate]);
 
   if (loading) return <LoadingSpinner />;
-  if (errorMessage) return <div>{errorMessage}</div>;
+  if (errorMessage) return <div className="text-red-500 text-center mt-10">{errorMessage}</div>;
 
   return <div className="App"></div>;
 };
