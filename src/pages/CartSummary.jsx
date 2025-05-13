@@ -169,38 +169,22 @@ const CartSummary = () => {
           {/* QR Code section */}
           {itemCount > 0 && currentPoint >= totalPointsSum &&
             <div>
-              <p className="text-center pt-10 text-xl">Slide เพื่อสร้าง QR Code สำหรับใช้ตอนรับสินค้า</p>
-              <>
-              <div className="mt-10 flex justify-center">
-                <div
-                className={`slider-container ${isOn ? "on" : ""}`}
-                onClick={toggleSwitch}
-                style={{ cursor: isButtonDisabled ? 'not-allowed' : 'pointer' }} // Disable cursor when button is disabled
-                >
-                <div className="slider">
-                <div className="slider-button"></div>
+              <p className="text-center pt-10 text-xl">Click เพื่อสร้าง QR Code สำหรับใช้ตอนรับสินค้า</p>
+              <> 
+                <div className="mt-10 flex justify-center">
+                  <button
+                    onClick={toggleSwitch}
+                    disabled={isButtonDisabled}
+                    style={{ cursor: isButtonDisabled ? 'not-allowed' : 'pointer' }}
+                    className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                  >
+                    สร้าง QR Code
+                  </button>
                 </div>
-                </div>
-              </div>
-
-              {/* <div class="flex items-center bg-gray-400 rounded-lg shadow-md p-1 w-96">
-                <div class="flex-1 bg-gray-300 h-16 rounded-lg"></div>
-                <button class="ml-2 bg-yellow-500 p-4 rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300 ease-in-out">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-white">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div> */}
               </>
 
               {isOn && (
                 <div>
-                  {/* <button
-                    onClick={handleOpenRedeemModal}
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                  >
-                    แลกแต้ม
-                  </button> */}
                   <RedeemPointsModal
                     point={totalPointsSum}
                     isOpen={isRedeemModalOpen}
@@ -244,12 +228,12 @@ const CartSummary = () => {
               >
                 Close
               </button>
-              <button
+              {/* <button
                 className="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
                 onClick={handleDownloadQrCode}
               >
                 Download
-              </button>
+              </button> */}
             </div>
 
           </div>

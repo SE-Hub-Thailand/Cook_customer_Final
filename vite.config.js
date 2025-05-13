@@ -10,10 +10,10 @@ export default defineConfig({
       port: 5173,
       host: true,
       strictPort: true,
-      origin: 'https://724b-1-20-91-51.ngrok-free.app',
+      origin: 'https://8990-2001-fb1-40-a08f-e54a-988c-b3a9-3cdd.ngrok-free.app',
       hmr: {
         protocol: 'wss',
-        host: '724b-1-20-91-51.ngrok-free.app',
+        host: '8990-2001-fb1-40-a08f-e54a-988c-b3a9-3cdd.ngrok-free.app',
         clientPort: 443
       },
       proxy: {
