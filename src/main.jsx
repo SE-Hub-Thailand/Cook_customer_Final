@@ -111,10 +111,6 @@ const router = createBrowserRouter([
     path: "/history-point/:id",
     element: <HistoryPoint />
   },
-  // {
-  //   path: "/redeem-details/:id",
-  //   element: <RedeemDetails />
-  // },
   {
     path: "/history-service-machine/:id",
     element: <HistoryServiceMachine />
@@ -135,26 +131,6 @@ const router = createBrowserRouter([
     path: "/update-user-profile",
     element: <UpdateUserProfile />
   },
-  // {
-  //   path: "/store-map/khunnaiwimon",
-  //   element: <MapKhunnaiWimon />
-  // },
-  // {
-  //   path: "/store-map/naitonmai",
-  //   element: <MapNaitonmai />
-  // },
-  // {
-  //   path: "/store-map/paranee",
-  //   element: <MapParanee />
-  // },
-  // {
-  //   path: "/store-map/krung",
-  //   element: <MapKrung />
-  // },
-  // {
-  //   path: "/store-map/kamalad",
-  //   element: <MapKamalad />
-  // },
   {
     path: "/conclusion",
     element: <Conclusion />
@@ -171,34 +147,6 @@ const router = createBrowserRouter([
     path: "/contact-us",
     element: <ContactUs />
   },
-  // {
-  //   path: "/partner",
-  //   element: <ConfirmOrder />
-  // },
-  // {
-  //   path: "/partner/profile-store",
-  //   element: <ProfileStore />
-  // },
-  // {
-  //   path: "/partner/update-profile-store/:id",
-  //   element: <UpdateProfileStore />
-  // },
-  // {
-  //   path: "/partner/contact-us",
-  //   element: <ContactUs_Partner />
-  // },
-  // {
-  //   path: "/partner/pdpa",
-  //   element: <PDPA />
-  // },
-  // {
-  //   path: "/partner/get-money-item",
-  //   element: <GetMoneyItems />
-  // },
-  // {
-  //   path: "/partner/add-product",
-  //   element: <AddProduct />
-  // },
 ]);
 
 createRoot(document.getElementById('root')).render(
