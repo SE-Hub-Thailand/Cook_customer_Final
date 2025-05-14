@@ -9,12 +9,12 @@ export const getAllShops = async (token: string): Promise<Shop[]> => {
     }
     try {
         // const API_URL = 'https://cookbstaging.careervio.com/api/shops/?populate=image
-        const url = `${API_URL}/api/shops/?populate=image`;
+        const url = `${API_URL}/api/shops?pagination[limit]=1000&populate=image`;
         // console.log('url', url);
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                Authorization: `Bearer ${token}`,
+                // Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
         });
@@ -40,6 +40,7 @@ export const getAllShops = async (token: string): Promise<Shop[]> => {
             bookBankNumber: item.attributes.bookBankNumber,
             bookBankImage: item.attributes.image,
             image: item.attributes.image,
+            
         }));
         console.log('shops', shops);
         return shops;
