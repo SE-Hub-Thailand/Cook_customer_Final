@@ -1,0 +1,86 @@
+nav {
+    box-shadow: 0 5px 15px rgba(255,255,255,0.06);
+    transition: 0.3s ease-in-out;
+}
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+li a:hover{
+    color: #FBB615;
+}
+li {
+    padding: 0 20px;
+    position: relative;
+}
+
+.active {
+   color: #FBB615;
+}
+
+#mobile {
+    display: none;
+}
+
+#mobile i {
+    color: #007F00;
+}
+
+.profile-picture {
+    display: none;
+}
+.input-username:active {
+    background-color: white !important;
+}
+@media screen and (max-width: 769px) {
+
+    #navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 90px;
+        right: -330px;
+        width: 330px;
+        height: 100vh;
+        background-color: #fff;
+        box-shadow: 0 40px 60px rgba(255,255,255,0.1);
+        padding: 40px 0 0 0;
+        transition: 0.3s ease-in-out;
+        z-index: 111111;
+    }
+
+    #navbar.open {
+        right: 0px;
+    }
+
+    #navbar li {
+        margin-top: 2rem;
+    }
+
+    #navbar li a.fontSize {
+        font-size: 1.1rem;
+        text-align: left;
+    }
+
+    #navbar li a::before {
+        content: "\203A";
+        font-size: 2.5rem; 
+        position: relative;
+        top: 4px;
+        padding-right: 4px;
+    }
+
+    #mobile {
+        display: block;
+    }
+    
+    #mobile i {
+        font-size: 24px;
+        cursor: pointer;
+        position:relative;
+        left: 2rem;
+    }
+}
