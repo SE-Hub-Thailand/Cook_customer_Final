@@ -100,10 +100,6 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: "/choose/wimon",
-    element: <ChooseWimon />
-  },
-  {
     path: "/shop/:id",
     element: <ChooseShop />
   },
