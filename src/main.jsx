@@ -30,7 +30,6 @@ import ContactUs from './pages/ContactUs.jsx';
 // import GetMoneyItems from './pages/partner/GetMoneyItems.jsx';
 // import AddProduct from './pages/partner/AddProduct.jsx';
 import ChooseShop from './pages/ChooseShop.jsx';
-import ChooseWimon from './pages/ChooseWimon.jsx';
 import Register from './pages/Register.jsx';
 import LoginRegister from './pages/LoginRegister.jsx';
 import Login from './pages/Login.jsx';
