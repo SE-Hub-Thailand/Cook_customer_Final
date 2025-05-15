@@ -36,6 +36,8 @@ const CartSummary = () => {
   let totalCountSum = 0;  // Declare total count sum
 
   const toggleSwitch = () => {
+    localStorage.removeItem('cart');
+    localStorage.removeItem('cart2');
     if (!isButtonDisabled) {
       setIsOn(!isOn);
       setIsRedeemModalOpen(true); // Open the redeem modal when the toggle is turned on
