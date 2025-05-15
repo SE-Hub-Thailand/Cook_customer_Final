@@ -5,6 +5,8 @@ const RedeemPointsModal = ({ point, isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
   const handleConfirm = () => {
+    localStorage.removeItem('cart');
+    localStorage.removeItem('cart2');
     Swal.fire({
       icon: "success",
       text: "ระบบได้ทำการหักแต้มของคุณสำเร็จแล้ว กรุณานำ QR Code ที่ได้รับไปแสดงที่ร้านค้าเพื่อรับสินค้า",

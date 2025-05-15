@@ -11,7 +11,7 @@ import { updateUser } from "../api/strapi/userApi";
 
 const CartSummary = () => {
   const location = useLocation();
-  const token = localStorage.getItem("jwt");
+  const token = localStorage.getItem("token");
   const currentPoint = localStorage.getItem('point');
   const cart2 = localStorage.getItem('cart2');
 
@@ -236,12 +236,6 @@ const CartSummary = () => {
               >
                 Close
               </button>
-              {/* <button
-                className="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
-                onClick={handleDownloadQrCode}
-              >
-                Download
-              </button> */}
             </div>
 
           </div>
@@ -253,4 +247,3 @@ const CartSummary = () => {
 };
 
 export default CartSummary;
-

@@ -38,20 +38,10 @@ export default function HistoryPoint() {
         console.log("Fetching history points...");
         const redeemData = await getAllRedeems(id, token);
         localStorage.setItem('redeem', JSON.stringify(redeemData));
-        // getAllHistoryPoints(id, token);
-        // console.log("redeemData: ", redeemData);
         console.log("JSON.stringify(redeemData): ", JSON.stringify(redeemData));
-
-        // console.log("redeemData.length: ", redeemData.length);
-        // console.log("json parse Point: ", JSON.parse(localStorage.getItem('redeem')));
 
         const userData = JSON.parse(localStorage.getItem('user'));
         setUser(userData);
-        // const user = localStorage.getItem('user');
-
-        // console.log("user point: ", user);
-        // console.log("points[0].customer.point: ", user.point);
-
         // ตั้งค่าข้อมูลแต้ม หรือ ถ้าไม่มีข้อมูลตั้งค่าเป็น array ว่าง
         setHistoryPoints(redeemData.length > 0 ? redeemData : []);
         setLoading(false); // หยุด loading
@@ -179,30 +169,11 @@ export default function HistoryPoint() {
                   >
                     Close
                   </button>
-                  {/* <button
-                    className="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
-                    onClick={handleDownloadQrCode}
-                  >
-                    Download
-                  </button> */}
                 </div>
 
               </div>
             </div>
 
-              // ? (
-              //   <Alert
-              //     title="ไม่พบข้อมูลการแลกแต้ม!"
-              //     message=""
-              //     path="0"
-              //     status="fail"
-              // />)
-              //   : (
-                  // <RedeemDetails
-                  //   qrCode={redeem.qrCode}
-                  //   isOpen={isRedeemModalOpen}
-                  //   onClose={handleCloseRedeemModal}/>
-                  // )
               }
 
             </div>
