@@ -17,7 +17,6 @@ function Home() {
   // const { id } = useParams();
 
   const API_URL = import.meta.env.VITE_API_URL;
-  // const token = localStorage.getItem('accessToken');
   const token = localStorage.getItem('token');
   // const token = import.meta.env.VITE_TOKEN_TEST ;
 

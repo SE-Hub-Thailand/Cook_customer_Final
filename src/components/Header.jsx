@@ -135,7 +135,7 @@ function Header() {
     if (liff) {
         liff.logout();
     }
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem('token');
     localStorage.removeItem('user');
     navigate('/'); // Redirect to login page
   };

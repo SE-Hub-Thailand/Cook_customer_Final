@@ -7,7 +7,7 @@ import AlertNoData from '../components/AlertNoData';
 import RedeemPointsModal from '../components/RedeemPointsModal';
 import { createRedeem } from "../api/strapi/redeemApi";
 import { updateUser } from "../api/strapi/userApi";
-// import { PaymentSuccessAlert } from '../components/PaymentSuccessAler';
+import { useNavigate } from 'react-router-dom';
 
 const CartSummary = () => {
   const location = useLocation();
@@ -15,9 +15,13 @@ const CartSummary = () => {
   const currentPoint = localStorage.getItem('point');
   const cart2 = localStorage.getItem('cart2');
 
-  console.log("currentPoint: ", currentPoint);
-
-  const itemCount = localStorage.getItem('totalItems'); // แปลง itemCount เป็น integer
+    const navigate = useNavigate();
+    console.log("currentPoint: ", currentPoint);
+    
+    const itemCount = localStorage.getItem('totalItems'); // แปลง itemCount เป็น integer
+    if (!cart2) {
+      navigate('/home');
+    }
   const { storedCounts, cartItems } = location.state || {};
   const parsedCounts = typeof storedCounts === 'string' ? JSON.parse(storedCounts) : storedCounts;
 
@@ -36,13 +40,10 @@ const CartSummary = () => {
   let totalCountSum = 0;  // Declare total count sum
 
   const toggleSwitch = () => {
-    localStorage.removeItem('cart');
-    localStorage.removeItem('cart2');
     if (!isButtonDisabled) {
       setIsOn(!isOn);
       setIsRedeemModalOpen(true); // Open the redeem modal when the toggle is turned on
-      setIsButtonDisabled(true); // Disable the button after it's clicked
-
+      // setIsButtonDisabled(true); // Disable the button after it's clicked
     }
   };
 
@@ -54,6 +55,7 @@ const CartSummary = () => {
     console.log("การแลกแต้มสำเร็จ");
     setIsRedeemModalOpen(false); // ปิด Modal หลังจากการยืนยัน
     setIsShowQr(true); // แสดง QR code
+    setIsButtonDisabled(true);
     const user = JSON.parse(localStorage.getItem('user'));
 
     // จัดรูปแบบวันที่และเวลาในรูปแบบ DD/MM/YYYY HH:mm AM/PM
@@ -79,21 +81,11 @@ const CartSummary = () => {
     // if (response.ok)
     const response2 = updateUser(user?.id, { point: currentPoint - totalPointsSum }, token);
 
-    // totalPoints: number;
-    // status: string;
-    // customer: User;
-    // qrCode: string;
-    // productJsonArray: JSON;
+
     console.log("response: ", response);
   };
 
   const handleQrCodeClick = () => {
-    // const canvas = document.querySelector("canvas");
-    // if (canvas) {
-    //   const qrImageUrl = canvas.toDataURL("image/png"); // Convert QR code to image data URL
-    //   const newWindow = window.open();
-    //   newWindow.document.write(`<img src="${qrImageUrl}" />`); // Open the image in a new window
-    // }
     const canvas = document.querySelector("canvas");
     if (canvas) {
       const qrImageUrl = canvas.toDataURL("image/png");

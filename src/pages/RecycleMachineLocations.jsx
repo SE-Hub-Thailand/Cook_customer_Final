@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { getAllRecycleMachines } from '../api/strapi/recycleMachineApi';
 import * as L from "leaflet";
 import LoadingSpinner from '../components/LoadingSpinner';
+import { useNavigate } from 'react-router-dom';
 const containerStyle = {
   width: '100%',
   height: '400px'
@@ -24,9 +25,11 @@ const RecycleMachineLocations = () => {
   const [recycleMachines, setRecycleMachines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // const token = import.meta.env.VITE_TOKEN_TEST ;
-  const token = localStorage.getItem('token');
-
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate('/');
+  }
   useEffect(() => {
     const fetchRecycleMachines = async () => {
       try {

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { getAllOilMachines } from '../api/strapi/oilMachineApi';
 import * as L from "leaflet";
 import LoadingSpinner from '../components/LoadingSpinner';
+import { useNavigate } from 'react-router-dom';
 
 const containerStyle = {
   width: '100%',
@@ -25,9 +26,11 @@ const OilMachineLocations = () => {
   const [oilMachines, setOilMachines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // const token = import.meta.env.VITE_TOKEN_TEST ;
-  const token = localStorage.getItem('token');
-
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate('/');
+  }
   useEffect(() => {
     const fetchOilMachines = async () => {
       try {

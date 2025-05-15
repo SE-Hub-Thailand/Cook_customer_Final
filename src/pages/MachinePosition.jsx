@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Header from "../components/Header.jsx";
 import Container from "@mui/material/Container";
 import "../index.css";
 import can from "../assets/images/Can_2_.png";
@@ -20,7 +19,6 @@ export default function MachinePosition() {
 
   return (
     <>
-      {/* <Header /> */}
       <Container maxWidth="sm">
         <div className="text-2xl text-center mt-10">ตำแหน่งตู้</div>
         <div className="bg-grey-bg mt-10 grid grid-cols-2 rounded-t-lg">

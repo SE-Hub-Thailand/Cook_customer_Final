@@ -20,7 +20,6 @@ import ShopDetails from './pages/ShopDetails.jsx';
 // import MapKrung from './components/MapKrung.jsx';
 // import ShopDetailKamalad from './pages/ShopDetailKamalad.jsx';
 // import MapKamalad from './components/MapKamalad.jsx';
-import Conclusion from './pages/Conclusion.jsx';
 import MachinePosition from './pages/MachinePosition.jsx';
 import ContactUs from './pages/ContactUs.jsx';
 // import ConfirmOrder from './pages/partner/ConfirmOrder.jsx';
@@ -125,10 +124,6 @@ const router = createBrowserRouter([
   {
     path: "/update-user-profile",
     element: <UpdateUserProfile />
-  },
-  {
-    path: "/conclusion",
-    element: <Conclusion />
   },
   {
     path: "/machine-position",

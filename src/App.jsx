@@ -10,6 +10,8 @@ import { logInfo, logError, logDebug } from './utils/logger';
 const LiffCustomer = import.meta.env.VITE_LIFF_ID;
 
 const App = () => {
+    localStorage.removeItem('cart');
+    localStorage.removeItem('cart2');
     const navigate = useNavigate();
     const { liff, error } = useLiff();
     const [loading, setLoading] = useState(true);
@@ -148,12 +150,14 @@ const App = () => {
 
     if (error) {
         logError("LIFF error from useLiff hook", { message: error.message });
-        return <div className="App"><p>Something went wrong: {error.message}</p></div>;
+        return <div className="App">
+          {/* <p>Something went wrong: {error.message}</p> */}
+          </div>;
     }
 
     return (
         <div className="App">
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {/* {errorMessage && <p className="error-message">{errorMessage}</p>} */}
         </div>
     );
 };
